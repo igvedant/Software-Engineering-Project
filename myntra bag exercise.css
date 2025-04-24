@@ -1,0 +1,14 @@
+.atb-button{
+    padding: 5px 25px;
+    background-color: lightgreen;
+    border: none;
+    border-radius: 10px;
+    font-weight: 550;
+}
+#wishlist-button{
+    font-weight: 550;
+    padding: 5px 70px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    
+}

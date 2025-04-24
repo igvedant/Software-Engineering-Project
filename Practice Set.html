@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Practice Set 1</title>
+    <link rel="stylesheet" href="Practice Set.css">
+</head>
+<body>
+    <main>
+        <button id="button1" class="click" onclick="alert('Welcome')">Add to Bag</button>
+        <button id="button2" class="click" onclick="alert('Welcome')">❤️Wishlist</button>
+        <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, omnis.</p> -->
+        <h1 id="my-name"></h1>
+        <h2 id="greet"></h2>
+        <button id="pressButton"
+            onclick="buttonClicked()">
+        </button>
+    </main>
+    <script>
+        // alert('Welcome');
+        const myName='Vedant Singh';
+        document.querySelector('#my-name').innerText= myName;
+        let tShirtPrice = 10000 -275;
+        let shoesPrice = 3399;
+        let platformFee= 20;
+        let shippingFee= 0;
+        let cartValue= Math.floor(tShirtPrice+(shoesPrice-(55*shoesPrice/100) -175) +platformFee+shippingFee);
+        console.log(cartValue);
+        const GSTpercentage= 18;
+        console.log(eval('2+6-5*4/2')+4-2+9);
+//Practice SET Functions
+        function evenOdd(num){
+            return num%2==0?'Even': 'Odd';
+        }
+
+        function largerNum(num1, num2){
+            return num1>num2?num1:num2;
+        }
+
+        function temperatureCtoF(tempInC){
+            return 9/5*tempInC+32;
+        }
+//Practice set if-else & boolean
+        let age;
+        let gender='Female';
+        if(age<5&age>0){
+            console.log(`You got a discount of 100%`);
+        }
+        else if(5<=age&age<8 || gender==='Female'){
+            console.log(`You got a discount of 50%`);
+        }
+        else if (age>65){
+            console.log(`You got a discount of 30%`);
+        }
+        else if(8<=age&age<=65 || gender==='Male'){
+            console.log(`You got a discount of No discount`);
+        }
+        else{console.log('Enter Valid Age or Gender')}
+// Practice set - Object
+
+        let product={
+            brand:'Mango' ,
+            price:861,
+            'item-name':'T-shirt',
+            'delivery-time': 3,
+        }
+        let productCopy={
+            brand:'Maango' ,
+            price:861,
+            'item-name':'T-shirt',
+            'delivery-time': 3,
+        };
+        // product.brand='raymond';
+        // console.log(productCopy.brand);
+        console.log(product['delivery-time']);
+        let delivery={
+            message:'good morning',
+            status:'complete',
+        };
+        let {message,status}=delivery;
+        console.log(message);
+
+        function isIdenticalProduct(obj1,obj2){
+            if(typeof obj1!=='object' || typeof obj2!=='object'){
+                console.warn('Invalid parameter')
+                return false;
+            }
+            if(obj1.brand===obj2.brand && obj1['item-name']===obj2['item-name'] && obj1.price===obj2.price){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        console.log(isIdenticalProduct(product,productCopy));
+
+        //Date and DOM practice set
+        function doGreeting(Name='Dear'){
+            let time=new Date;
+            console.log(time.getHours());
+            if(12>time.getHours()&&time.getHours()>4){
+                document.querySelector('#greet').innerText='Good Morning '+name;
+            }
+            else if (16>time.getHours()&&time.getHours()>12){
+                document.querySelector('#greet').innerText='Good afternoon '+name;
+            }
+            else{
+                document.querySelector('#greet').innerText='Good Night '+Name;
+            }
+        }
+        doGreeting();
+
+
+        let buttonNum=localStorage.getItem('pressCount')||0;
+        document.querySelector('#pressButton').innerText=buttonNum;
+
+        function buttonClicked(){
+            buttonNum++;
+            localStorage.setItem('pressCount',buttonNum);
+            updateButton();
+        }
+
+        function updateButton(){
+            document.querySelector('#pressButton').innerText=buttonNum;
+            if(buttonNum%2==0){
+                document.querySelector('#pressButton').classList.remove('js-odd');
+                document.querySelector('#pressButton').classList.add('js-even');
+            }else{
+                document.querySelector('#pressButton').classList.remove('js-even');
+                document.querySelector('#pressButton').classList.add('js-odd');
+            }
+        }
+        updateButton();
+
+
+        // Arrays and Loops
+
+        let arr=[5,6];
+        console.log(arr);
+        arr.unshift(4);
+        arr.push(7);
+        console.log(arr);
+
+        function elementInArray(arr,a){
+            return arr[a-1];
+        }
+        console.log(elementInArray(arr,2));
+        let newArr=arr.slice(0,4);
+        arr[0]=1;
+        console.log(arr);
+        console.log(newArr);
+
+        function isPrime(num){
+            let i=2;
+            while(i<num){
+                if(num%i===0){
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+        let a=1;
+        let primeCount=0;
+        while(true){
+            if(isPrime(a)){
+                primeCount++;
+                console.log(a);
+            }
+            if(primeCount===5){
+                break;
+            }
+            a++;
+        }
+
+        for(let i =10;i>=1;i--){
+            console.log(i);
+        }
+
+        let arr7=[1,-6,5,7,-98];
+        for(let i=0;i<arr7.length;i++){
+            if(arr7[i]<0){
+                continue;
+            }
+            console.log(arr7[i]);
+        }
+
+        let arr8=['KG','Coding','Javascript','Course','is','Best'];
+        let str='';
+        for(let i=0;i<arr8.length;i++){
+            str+=arr8[i]+' ';
+        }
+        console.log(str);
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Myntra Bag Exercise</title>
+    <link rel="stylesheet" href="myntra bag exercise.css">
+</head>
+
+<body>
+
+    <button id="add-item" class="atb-button"
+        onclick="cartQuantity++; document.querySelector('#printCartQuantity').innerText=`Your Bag has ${cartQuantity} items`;">Add
+        to Bag</button>
+    <button id="wishlist-button" onclick="cartQuantity--; if(cartQuantity<0){document.querySelector('#printCartQuantity').innerText='Invalid Attempt';cartQuantity=0;} else {document.querySelector('#printCartQuantity').innerText=`Your Bag has ${cartQuantity} items`;}">Move to wishlist</button>
+    <button id="add-sale-item" class="atb-button" onclick="cartQuantity+=2; document.querySelector('#printCartQuantity').innerText=`Your Bag has ${cartQuantity} items`;">Add 1 + 1 sale item</button>
+
+    <h1 id="printCartQuantity"></h1>
+
+    <script>
+        let cartQuantity = 0;
+        document.querySelector('#printCartQuantity').innerText=`Your Bag has ${cartQuantity} items`;
+    </script>
+</body>
+</html>
